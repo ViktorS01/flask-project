@@ -204,9 +204,6 @@ def fun(t, P, l1, l2, l3, l4, l5, n1, n2, n3, n4, n5):
         ]
 
 def generate_plot(l1, l2, l3, l4, l5, n1, n2, n3, n4, n5):
-    # Set initial conditions and solve the system
-    # l1, l2, l3, l4, l5 = 2, 2, 2, 2, 2
-    # n1, n2, n3, n4, n5 = 0, 0, 0, 0, 0
 
     p = [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0 ]
@@ -242,7 +239,7 @@ def download_file():
     return send_file(filepath, as_attachment=(filename,))
 
 @app.route("/")
-def hello_world():
+def render_page():
     plot_img = generate_plot(2, 2, 2, 2, 2, 0, 0, 0, 0, 0)
     return render_template('index.html', plot_img=plot_img)
 
