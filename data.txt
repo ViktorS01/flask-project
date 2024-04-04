@@ -1,0 +1,38 @@
+dP0(t)/d(t) = - (l1 + l2 + l3 + l4 + l5) * P0(t) + n1 * P1(t) + n2 * P2(t) + n3 * P3(t) + n4 * P4(t) + n5 * P5  (t)
+
+dP1(t)/d(t) = l1 * P0(t) - (l2 + l3 + l4 + l5 + n1) * P1(t) + n2 * P6(t) + n3 * P7(t) + n4 * P8(t) + n5 * P9(t)
+dP2(t)/d(t) = l2 * P0(t) - (l1 + l3 + l4 + l5 + n2) * P2(t) + n1 * P6(t) + n3 * P10(t) + n4 * P11(t) + n5 * P12(t)
+dP3(t)/d(t) = l3 * P0(t) - (l1 + l2 + l4 + l5 + n3) * P3(t) + n1 * P7(t) + n2 * P10(t) + n4 * P13(t) + n5 * P14(t)
+dP4(t)/d(t) = l4 * P0(t) - (l1 + l2 + l3 + l5 + n4) * P4(t) + n1 * P8(t) + n2 * P11(t) + n3 * P13(t) + n5 * P15(t)
+dP5(t)/d(t) = l5 * P0(t) - (l1 + l2 + l3 + l4 + n5) * P5(t) + n1 * P9(t) + n2 * P12(t) + n3 * P14(t) + n4 * P15(t)
+
+dP6(t)/d(t) = l2 * P1(t) + l1 * P2(t) - (l3 + l4 + l5 + n1 + n2) * P6(t) + n5 * P23(t) + n4 * P24(t) + n3 * P25(t)
+dP7(t)/d(t) = l3 * P1(t) + l1 * P3(t) - (l2 + l4 + l5 + n3 + n1) * P7(t) + n2 * P25(t) + n4 * P22(t) + n5 * P21(t)
+dP8(t)/d(t) = l4 * P1(t) + l1 * P4(t) - (l2 + l3 + l5 + n4 + n1) * P8(t) + n2 * P24(t) + n3 * P22(t) + n5 * P20(t)
+dP9(t)/d(t) = l5 * P1(t) + l1 * P5(t) - (l2 + l3 + l4 + n5 + n1) * P9(t) + n2 * P23(t) + n3 * P21(t) + n4 * P20(t)
+dP10(t)/d(t) = l2 * P3(t) + l3 * P2(t) - (l1 + l4 + l5 + n2 + n3) * P10(t) + n1 * P25(t) + n4 * P19(t) + n5 * P18(t)
+dP11(t)/d(t) = l4 * P2(t) + l2 * P4(t) - (l1 + l3 + l5 + n2 + n4) * P11(t) + n1 * P24(t) + n3 * P19(t) + n5 * P17(t)
+dP12(t)/d(t) = l2 * P5(t) + l5 * P2(t) - (l1 + l3 + l4 + n2 + n5) * P12(t) + n1 * P23(t) + n3 * P18(t) + n4 * P17(t)
+dP13(t)/d(t) = l3 * P4(t) + l4 * P3(t) - (l1 + l2 + l5 + n3 + n4) * P13(t) + n1 * P22(t) + n2 * P19(t) + n5 * P16(t)
+dP14(t)/d(t) = l3 * P5(t) + l5 * P3(t) - (l1 + l2 + l4 + n3 + n5) * P14(t) + n1 * P21(t) + n2 * P18(t) + n4 * P16(t)
+dP15(t)/d(t) = l4 * P5(t) + l5 * P4(t) - (l1 + l2 + l3 + n4 + n5) * P15(t) + n1 * P20(t) + n2 * P17(t) + n3 * P16(t)
+
+
+dP16(t)/d(t) = l5 * P13(t) + l4 * P14(t) + l3 * P15(t) - (l1 + l2 + n3 + n4 + n5) * P16(t) + n1 * P27(t) + n2 * P26(t)
+dP17(t)/d(t) = l5 * P11(t) + l4 * P12(t) + l2 * P15(t) - (l1 + l3 + n2 + n4 + n5) * P17(t) + n1 * P28(t) + n3 * P26(t)
+dP18(t)/d(t) = l5 * P10(t) + l3 * P12(t) + l2 * P14(t) - (l1 + l4 + n2 + n3 + n5) * P18(t) + n1 * P29(t) + n4 * P26(t)
+dP19(t)/d(t) = l4 * P10(t) + l3 * P11(t) + l2 * P13(t) - (l1 + l5 + n2 + n3 + n4) * P19(t) + n1 * P30(t) + n5 * P26(t)
+dP20(t)/d(t) = l5 * P8(t) + l4 * P9(t) + l1 * P15(t) - (l2 + l3 + n1 + n4 + n5) * P20(t) + n2 * P28(t) + n3 * P27(t)
+dP21(t)/d(t) = l5 * P7(t) + l3 * P9(t) + l1 * P14(t) - (l2 + l4 + n1 + n3 + n5) * P21(t) + n2 * P29(t) + n4 * P27(t)
+dP22(t)/d(t) = l4 * P7(t) + l3 * P8(t) + l1 * P13(t) - (l2 + l5 + n1 + n3 + n4) * P22(t) + n2 * P30(t) + n5 * P27(t)
+dP23(t)/d(t) = l5 * P6(t) + l2 * P9(t) + l1 * P12(t) - (l3 + l4 + n1 + n2 + n5) * P23(t) + n3 * P29(t) + n4 * P28(t)
+dP24(t)/d(t) = l4 * P6(t) + l2 * P8(t) + l1 * P11(t) - (l3 + l5 + n1 + n2 + n4) * P24(t) + n3 * P30(t) + n5 * P28(t)
+dP25(t)/d(t) = l3 * P6(t) + l2 * P7(t) + l1 * P10(t) - (l4 + l5 + n1 + n2 + n3) * P25(t) + n4 * P30(t) + n5 * P29(t)
+
+dP26(t)/d(t) = l2 * P16(t) + l3 * P17(t) + l4 * P18(t) + l5 * P19(t) - (l1 + n2 + n3 + n4 + n5) * P26(t) + n1 * P31(t)
+dP27(t)/d(t) = l1 * P16(t) + l3 * P20(t) + l4 * P21(t) + l5 * P22(t) - (l2 + n1 + n3 + n4 + n5) * P27(t) + n2 * P31(t)
+dP28(t)/d(t) = l1 * P17(t) + l2 * P20(t) + l4 * P23(t) + l5 * P24(t) - (l3 + n1 + n2 + n4 + n5) * P28(t) + n3 * P31(t)
+dP29(t)/d(t) = l1 * P18(t) + l2 * P21(t) + l3 * P23(t) + l5 * P25(t) - (l4 + n1 + n2 + n3 + n5) * P29(t) + n4 * P31(t)
+dP30(t)/d(t) = l1 * P19(t) + l2 * P22(t) + l3 * P24(t) + l4 * P25(t) - (l5 + n1 + n2 + n3 + n4) * P30(t) + n5 * P31(t)
+ 
+dP31(t)/d(t) = l1 * P26(t) + l2 * P27(t) + l3 * P28(t) + l4 * P29(t) + l5 * P30(t) - (n1 + n2 + n3 + n4 + n5) * P31(t)
