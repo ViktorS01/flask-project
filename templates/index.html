@@ -6,125 +6,7 @@
     <title>
       Решение систем дифференциальных уравнений методом Рунге — Кутты
     </title>
-    <script>
-      function downloadFile() {
-        window.location.href = "/download";
-      }
-
-      function updateImage(imageUrl) {
-        var imageElement = document.getElementById("plot-image");
-        if (imageElement) {
-          imageElement.src = "data:image/png;base64," + imageUrl;
-        }
-      }
-
-      function generatePlot(l1, l2, l3, l4, l5, n1, n2, n3, n4, n5) {
-        // Создаем экземпляр XMLHttpRequest
-        var xhr = new XMLHttpRequest();
-
-        // Устанавливаем метод и URL-адрес запроса
-        xhr.open("POST", "/generate_plot", true);
-
-        // Устанавливаем заголовок Content-Type
-        xhr.setRequestHeader("Content-Type", "application/json");
-
-        // Определяем функцию, которая будет вызвана при успешном завершении запроса
-        xhr.onload = function () {
-          if (xhr.status === 200) {
-            // Обрабатываем успешный ответ от сервера
-            var response = JSON.parse(xhr.responseText);
-            updateImage(response.plot_img_url);
-          } else {
-            // Обрабатываем ошибку, если сервер вернул код ответа, отличный от 200
-            console.log("Произошла ошибка: " + xhr.statusText);
-          }
-        };
-
-        // Определяем функцию, которая будет вызвана в случае ошибки запроса
-        xhr.onerror = function () {
-          console.log("Произошла ошибка запроса");
-        };
-
-        // Преобразуем параметры в формат JSON и отправляем их на сервер
-        var data = JSON.stringify({
-          l1,
-          l2,
-          l3,
-          l4,
-          l5,
-          n1,
-          n2,
-          n3,
-          n4,
-          n5,
-        });
-        xhr.send(data);
-      }
-    </script>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background: linear-gradient(135deg, #e6f5ff, #99ccff);
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-      }
-      header {
-        background-color: #4a90e2;
-        padding: 20px 0;
-        text-align: center;
-        color: white;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 24px;
-      }
-      footer {
-        background: linear-gradient(135deg, #333333, #000000);
-        padding: 10px 0;
-        text-align: center;
-        color: white;
-        font-size: 14px;
-        margin-top: auto;
-        width: 100%;
-        position: fixed;
-        bottom: 0;
-      }
-      .container {
-        text-align: center;
-        padding-top: 50px;
-      }
-      .button {
-        background-color: #4a90e2;
-        border: none;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-        border-radius: 8px;
-        transition: background-color 0.3s ease;
-      }
-      .button:hover {
-        background-color: #357ebd;
-      }
-      .image-container {
-        margin-top: 20px;
-        border: 2px solid #4a90e2;
-        padding: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      img {
-        max-width: 100%;
-        height: auto;
-      }
-    </style>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
   </head>
   <body>
     <header>
@@ -156,6 +38,7 @@
       >
         λ = 3, n = 4
       </button>
+      <button class="button" id="openModal">Ввести данные вручную</button>
       <button class="button" onclick="downloadFile()">
         Получить систему уравнений
       </button>
@@ -170,5 +53,28 @@
     <footer>
       &copy; 2024 Sychev Viktor М3-ИФСТ-11 | Email: vitya14022001@mail.ru
     </footer>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+          <span class="close">&times;</span>
+          <div class="modal-input-col">
+            <div class="modal-input-row">
+              <input class="modal-input" placeholder="λ1" id="λ1">
+              <input class="modal-input" placeholder="λ2" id="λ2">
+              <input class="modal-input" placeholder="λ3" id="λ3">
+              <input class="modal-input" placeholder="λ4" id="λ4">
+              <input class="modal-input" placeholder="λ5" id="λ5">
+            </div>
+            <div class="modal-input-row">
+              <input class="modal-input" placeholder="n1" id="n1">
+              <input class="modal-input" placeholder="n2" id="n2">
+              <input class="modal-input" placeholder="n3" id="n3">
+              <input class="modal-input" placeholder="n4" id="n4">
+              <input class="modal-input" placeholder="n5" id="n5">
+            </div>
+            <span id="error-message" class="error-message"></span>
+            <button onclick="validateForm()" class="button" id="generateButton">Сгенерировать график</button>
+      </div>
+    </div>
   </body>
+  <script src="{{url_for('static', filename='main.js')}}"></script>
 </html>

@@ -210,7 +210,7 @@ def generate_plot(l1, l2, l3, l4, l5, n1, n2, n3, n4, n5):
 
     solution = solve_ivp(fun, (0, 1), p, args=(l1, l2, l3, l4, l5, n1, n2, n3, n4, n5))
 
-    plt.figure(figsize=(14,9))
+    plt.figure(figsize=(14, 9), dpi=100)
     # Plot the results
     for index, element in enumerate(solution.y):
         plt.plot(solution.t, solution.y[index], label=f'P{index}(t)')
@@ -219,6 +219,8 @@ def generate_plot(l1, l2, l3, l4, l5, n1, n2, n3, n4, n5):
     plt.title('')
     plt.legend()
     plt.grid(True)
+    plt.legend(loc='center right')
+    plt.subplots_adjust(left=0.05, right=0.95, top=0.95, bottom=0.08)
 
     # Save the plot to a bytes buffer
     img = io.BytesIO()
