@@ -5,6 +5,7 @@ var span = document.getElementsByClassName("close")[0];
 var generateButton = document.getElementById("generateButton");
 var modalForm = document.getElementById("modalForm");
 var errorMessageElement = document.getElementById("error-message");
+var inputs = document.querySelectorAll('input[type="text"]');
 
 function downloadFile() {
   window.location.href = "/download";
@@ -82,6 +83,12 @@ generateButton.onclick = function () {
   validateForm();
 };
 
+function clearAllInputs() {
+  inputs.forEach(function (input) {
+    input.value = ""; // Очистка значения инпута
+  });
+}
+
 // Функция для генерации графика
 function sendForm() {
   // Получаем значения из инпутов
@@ -92,6 +99,7 @@ function sendForm() {
   }
 
   generatePlot(...values);
+  clearAllInputs();
   modal.style.display = "none";
   errorMessageElement.textContent = "";
 }
