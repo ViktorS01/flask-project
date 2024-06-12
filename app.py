@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, jsonify, send_file
 from scipy.integrate import solve_ivp
 import matplotlib.pyplot as plt
 import io
+import os
 
 app = Flask(__name__)
 
@@ -234,11 +235,11 @@ def generate_plot(l1, l2, l3, l4, l5, n1, n2, n3, n4, n5):
 @app.route('/download')
 def download_file():
     # Путь к файлу, который вы хотите скачать
-    filepath = 'data.txt'
+    filepath = os.path.join('static', 'data.txt')  # Указываем относительный путь к файлу
     # Имя файла, которое будет отображаться при скачивании
     filename = 'data.txt'
     # Отправляем файл клиенту для скачивания
-    return send_file(filepath, as_attachment=(filename,))
+    return send_file(filepath, as_attachment=True, download_name=filename)
 
 @app.route("/")
 def render_page():
